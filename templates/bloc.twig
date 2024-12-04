@@ -1,0 +1,11 @@
+{% extends '/base.twig' %}
+
+{% block page %}
+	<h6>Liste des blocs</h6>
+	{% for bloc in blocs %}
+		<p>{{ bloc.nom }}
+			<a href="index.php?page=bloc&id={{ bloc.id }}">détails</a>
+			<a href="index.php?page=bloc&action=edit&id={{ bloc.id }}">modifier</a>
+		</p>
+	{% endfor %}
+{% endblock %}

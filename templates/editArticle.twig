@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h2>Modifier un Article</h2>
+<form action="controleur.php?page=article&action=updateArticle" method="post">
+    <input class="form_input" type="hidden" readonly name="id">
+    <div class="form-style" id="textField">
+        <label for="titre">Titre :</label>
+        <textarea class="form_input" type="text" id="h1" name="h1" placeholder="Saisir un titre" required>{{ article.h1 }}</textarea>
+        <textarea class="form_input" type="text" id="style_h1" name="style_h1" placeholder="Saisir un style" required></textarea>
+    </div>
+    <div class="form-style" id="textField">
+        <label for="Sous-titre">Sous-titre :</label>
+        <textarea class="form_input" type="text" id="h2" name="h2" placeholder="Saisir un sous-titre" required>{{ article.h2 }}</textarea>
+        <textarea class="form_input" type="text" id="style_h2" name="style_h2" placeholder="Saisir un style" required></textarea>
+    </div>
+    <div class="form-style" id="textField">
+        <label for="auteur">Auteur :</label>
+        <textarea class="form_input" type="text" id="auteur" name="auteur" placeholder="Saisir un nom d'auteur" required>{{ article.auteur }}</textarea>
+    </div>
+    <input class="btn-detail"  type="submit" value="Modifier" name="submit">
+</form>
+{% endblock %}	

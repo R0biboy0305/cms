@@ -1,0 +1,57 @@
+{% extends "base.twig" %}
+
+{% block main %}
+<div class="article">
+    <div class="article__content">
+        <span>Titre :</span>
+        <h1 class="article__title">{{ article.h1 }}</h1>
+    </div>
+    
+    <div class="article__content">
+        <span>Sous-titre :</span>
+        <h2 class="article__sub-title">{{ article.h2 }}</h2>
+    </div>
+    <div class="article__content">
+        <span>ID :</span>
+        <span class="article__id">{{ article.id }}</span>
+    </div>
+    <div class="article__content"> 
+        <span>Auteur :</span>
+        <span class="article__autor">{{ article.auteur }}</span>
+    </div>
+    <a class="btn-detail" href="controleur.php?page=article&action=editArticle&id={{ article.id }}">Modifier</a>
+    <a class="btn-detail delete-link" href="controleur.php?page=article&action=deleteArticle&id={{ article.id }}">Supprimer</a>
+</div>
+
+
+{% if bloc is not empty %}
+
+{% for a in bloc %}
+<div class="item-content">
+    {% if a.type == "H1" %}
+        <h1 style="{{ a.style }}">{{ a.text }}</h1>
+    {% elseif a.type == "H2" %}
+        <h2 style="{{ a.style }}">{{ a.text }}</h2>
+    {% elseif a.type == "H3" %}
+        <h3 style="{{ a.style }}">{{ a.text }}</h3>
+    {% elseif a.type == "p" %}
+        <p style="{{ a.style }}">{{ a.text }}</p>
+    {% elseif a.type == "img" %}
+        <img src="{{ a.src }}" alt="{{ a.alt }}">
+    {% elseif a.type == "figure" %}
+        <figure>
+            <img src="{{ a.src }}" alt="{{ a.alt }}">
+            <figcaption>{{ a.text }}</figcaption>
+        </figure>
+    {% else %}
+        <p>Type non reconnu</p>
+    {% endif %}
+</div>
+{% endfor %}
+
+{% else %}
+<p>Aucun bloc(s) dans cet article</p>
+<a class="btn-style" href="controleur.php?page=bloc&action=createForm">Créer un bloc</a>
+{% endif %}
+
+{% endblock %}

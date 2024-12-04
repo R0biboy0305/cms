@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block main %}
+<div class="article">
+    <div class="article__content">
+        <span>Titre :</span>
+        <h1 class="article__title">{{ article.h1 }}</h1>
+    </div>
+    
+    <div class="article__content">
+        <span>Sous-titre :</span>
+        <h2 class="article__sub-title">{{ article.h2 }}</h2>
+    </div>
+    <div class="article__content">
+        <span>ID :</span>
+        <span class="article__id">{{ article.id }}</span>
+    </div>
+    <div class="article__content"> 
+        <span>Auteur :</span>
+        <span class="article__autor">{{ article.auteur }}</span>
+    </div>
+
+    <a class="btn-detail " href="controleur.php?page=article&action=editArticle&id={{ article.id }}">Modifier</a>
+    <a class="btn-detail delete-link" href="controleur.php?page=article&action=deleteArticle&id={{ article.id }}">Supprimer</a>
+    <a class="btn-detail" href="controleur.php?page=article&action=readBlocByArticle&id={{ article.id }}">Voir les blocs</a>
+</div>
+
+{% endblock %}

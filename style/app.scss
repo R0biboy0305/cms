@@ -1,0 +1,20 @@
+@import 'composents/btn.scss';
+@import 'composents/section.scss';
+@import 'composents/aside.scss';
+@import 'composents/header.scss';
+@import 'composents/article_modify.scss';
+@import 'composents/form.scss';
+
+
+*{
+    font-family: 'Roboto';
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+}
+
+
+

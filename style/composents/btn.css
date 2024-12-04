@@ -1,0 +1,46 @@
+.create-btn {
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #2F2F2F;
+  padding: 10px 7px;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.navigation-btn {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-detail {
+  text-decoration: none;
+  color: black;
+  padding: 6.5px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #ffffff;
+}
+
+.Arrow svg {
+  color: black;
+  transition: 0.2s ease-in;
+}
+.Arrow svg:hover {
+  scale: 1.5;
+  transition: 0s;
+}
+
+.btn-action {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}/*# sourceMappingURL=btn.css.map */

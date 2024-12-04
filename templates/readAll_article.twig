@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block main %}
+<a class="create-btn" href="controleur.php?page=article&action=createFormArticle">Créer un article</a>
+
+{% for article in tableau %}
+<div class="article">
+    <div class="article__content">
+        <span>Titre :</span>
+        <h1 class="article__title">{{ article.h1 }}</h1>
+    </div>
+    
+    <div class="article__content">
+        <span>Sous-titre :</span>
+        <h2 class="article__sub-title">{{ article.h2 }}</h2>
+    </div>
+    <div class="article__content">
+        <span>ID :</span>
+        <span class="article__id">{{ article.id }}</span>
+    </div>
+    <div class="article__content"> 
+        <span>Auteur :</span>
+        <span class="article__autor">{{ article.auteur }}</span>
+    </div>
+
+    
+    <div class="btn-action">
+        <a class="Arrow" href="controleur.php?page=article&action=moveUpArticle&id={{ article.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up"><path d="m18 15-6-6-6 6"/></svg></a>
+        <a class="Arrow" href="controleur.php?page=article&action=moveDownArticle&id={{ article.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg></a>
+        <a class="btn-detail" href="controleur.php?page=article&action=readOneArticle&id={{ article.id }}">Voir plus</a>
+    </div>
+</div>
+   
+{% endfor %}
+
+{% endblock %}

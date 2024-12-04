@@ -1,0 +1,12 @@
+{
+    "name": "robin/cms",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Robin\\Cms\\": "src/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.15"
+    }
+}

@@ -1,0 +1,41 @@
+$bg-whitebreak : #F0F0F0;
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-style{
+    background-color: $bg-whitebreak;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+select{
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+textarea::placeholder{
+    opacity: 50%;
+    display: flex;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: start;
+}
+
+textarea{
+    border-radius: 5px;
+    border: 1px solid black;
+    max-width: 1094px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+

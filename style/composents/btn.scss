@@ -1,0 +1,49 @@
+$bg-primary : #0077B6;
+$bg-secondary: #2F2F2F;
+$primary-color: #ffffff;
+
+.create-btn{
+    text-transform: uppercase;
+    color: $primary-color;
+    background-color: $bg-secondary;
+    padding: 10px 7px;
+    width: fit-content;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navigation-btn{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-detail{
+    text-decoration: none;
+    color: black;
+    padding: 6.5px 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    max-width: fit-content;
+    height: fit-content;
+    background-color: #ffffff;
+}
+
+.Arrow svg{
+    color: black;
+    transition: 0.2s ease-in;
+
+    &:hover{
+        scale: 1.5;
+        transition: 0s;
+    }
+}
+
+.btn-action{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+

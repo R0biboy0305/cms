@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block main %}
+<a class="create-btn" href="controleur.php?page=bloc&action=createForm">Créer un bloc</a>
+    {% for bloc in result %}
+    <div class="item-content">
+        {% if bloc.type == "H1" %}
+            <h1 style="{{ bloc.style }}">{{ bloc.text }}</h1>
+        {% elseif bloc.type == "H2" %}
+            <h2 style="{{ bloc.style }}">{{ bloc.text }}</h2>
+        {% elseif bloc.type == "H3" %}
+            <h3 style="{{ bloc.style }}">{{ bloc.text }}</h3>
+        {% elseif bloc.type == "p" %}
+            <p style="{{ bloc.style }}">{{ bloc.text }}</p>
+        {% elseif bloc.type == "img" %}
+            <img src="{{ bloc.src }}" alt="{{ bloc.alt }}">
+        {% elseif bloc.type == "img+text" %}
+        {% elseif bloc.type == "figure" %}
+            <figure>
+                <img src="{{ bloc.src }}" alt="{{ bloc.alt }}">
+                <figcaption>{{ bloc.text }}</figcaption>
+            </figure>
+        {% else %}
+            <p>Type non reconnu</p>
+        {% endif %}
+    <div class="btn-action">
+        <a class="Arrow" href="controleur.php?page=bloc&action=moveUp&id={{ bloc.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up"><path d="m18 15-6-6-6 6"/></svg></a>
+        <a class="Arrow" href="controleur.php?page=bloc&action=moveDown&id={{ bloc.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg></a>
+        <a class="btn-detail" href="controleur.php?page=bloc&action=readOne&id={{ bloc.id }}">Voir plus</a>
+    </div>
+</div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  background-color: #0077b6;
+  color: #fff;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+}/*# sourceMappingURL=header.css.map */

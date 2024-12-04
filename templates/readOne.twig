@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block main %}
+<div class="item-content">
+    {% if bloc.type == "H1" %}
+    <h1 style="{{ bloc.style }}">{{ bloc.text }}</h1>
+    {% elseif bloc.type == "H2" %}
+    <h2 style="{{ bloc.style }}">{{ bloc.text }}</h2>
+    {% elseif bloc.type == "H3" %}
+    <h3 style="{{ bloc.style }}">{{ bloc.text }}</h3>
+    {% elseif bloc.type == "p" %}
+    <p style="{{ bloc.style }}">{{ bloc.text }}</p>
+    {% elseif bloc.type == "img" %}
+    <img src="{{ bloc.src }}" alt="{{ bloc.alt }}">
+    {% elseif bloc.type == "figure" %}
+    <figure>
+        <img src="{{ bloc.src }}" alt="{{ bloc.alt }}">
+        <figcaption>{{ bloc.text }}</figcaption>
+    </figure>
+    {% else %}
+    <p>Type non reconnu</p>
+    {% endif %}
+    <a class="btn-detail" href="controleur.php?page=bloc&action=edit&id={{ bloc.id }}">Modifier</a>
+    <a class="btn-detail delete-link" href="controleur.php?page=bloc&action=delete&id={{ bloc.id }}">Supprimer</a>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block main %}
+
+<form action="controleur.php?page=article&action=createArticle" method="post">
+    <input class="form_input" type="hidden" readonly name="id">
+    <input type="hidden" name="position" readonly id="position">
+    <div class="form-style" id="textField">
+        <label for="titre">Titre :</label>
+        <textarea class="form_input" type="text" id="h1" name="h1" placeholder="Saisir un titre" required></textarea>
+        <textarea class="form_input" type="text" id="style_h1" name="style_h1" placeholder="Saisir un style"></textarea>
+    </div>
+    <div class="form-style" id="textField">
+        <label for="Sous-titre">Sous-titre :</label>
+        <textarea class="form_input" type="text" id="h2" name="h2" placeholder="Saisir un sous-titre" required></textarea>
+        <textarea class="form_input" type="text" id="style_h2" name="style_h2" placeholder="Saisir un style"></textarea>
+    </div>
+    <div class="form-style" id="textField">
+        <label for="auteur">Auteur :</label>
+        <textarea class="form_input" type="text" id="auteur" name="auteur" placeholder="Saisir un nom d'auteur" required></textarea>
+    </div>
+    <input class="btn-detail"  type="submit" value="Créer" name="submit">
+</form>
+{% endblock %}

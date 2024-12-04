@@ -1,0 +1,51 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+	<h2>Modifier un bloc</h2>
+
+	<form action="controleur.php?page=bloc&action=update" method="post" enctype="multipart/form-data">
+		<input type="hidden" readonly name="id" value="{{ bloc.id }}">
+		<div class="form-style">
+		<label for="choix">Type :</label>
+		<select name="type" id="choix" required>
+			<option value="H1" {% if bloc.type == 'H1' %}selected{% endif %}>H1</option>
+			<option value="H2" {% if bloc.type == 'H2' %}selected{% endif %}>H2</option>
+			<option value="H3" {% if bloc.type == 'H3' %}selected{% endif %}>H3</option>
+			<option value="p" {% if bloc.type == 'p' %}selected{% endif %}>Paragraphe</option>
+			<option value="img" {% if bloc.type == 'img' %}selected{% endif %}>Image</option>
+			<option value="figure" {% if bloc.type == 'figure' %}selected{% endif %}>Figure</option>
+		</select>
+		</div>
+		<div class="form-style" id="textField">
+			<label for="text">Texte :</label>
+			<textarea type="text" name="text" id="text" placeholder="Saisir votre texte">{{ bloc.text }}</textarea>
+		</div>
+	
+		<div class="form-style"  id="styleField">
+			<label for="style">Style :</label>
+			<textarea type="text" name="style" id="style" placeholder="Saisir un style (ex: color:#fff;)">{{ bloc.style }}</textarea>
+		</div>
+	
+		<div class="form-style"  id="fileField" style="display: none;">
+			<label for="fileToUpload">Fichier :</label>
+			<input type="file" name="fileToUpload" id="fileToUpload">
+		</div>
+	
+		<div class="form-style"  id="altField" style="display: none;">
+			<label for="alt">Alt :</label>
+			<textarea type="text" name="alt" id="alt" placeholder="Description de l'image">{{ bloc.alt }}</textarea>
+		</div>
+	
+		<div class="form-style">
+			<label for="article">Article :</label>
+		<select name="article_id" id="article_id" required>
+			{% for a in article %}
+				<option value="{{ a.id }}">{{ a.h1 }}</option>
+			{% endfor %}
+		</select>
+		</div>
+	
+		<input class="btn-detail cursor" type="submit" value="Modifier" name="submit">
+	</form>
+	
+{% endblock %}	

@@ -1,0 +1,50 @@
+{% extends "base.twig" %}
+
+{% block main %}
+<form action="controleur.php?page=bloc&action=create" method="post" enctype="multipart/form-data">
+    <input type="hidden" readonly name="id">
+    <div class="form-style">
+    <label for="choix">Type :</label>
+    <select name="type" id="choix" required onchange="updateFormFields()">
+        <option value="H1">H1</option>
+        <option value="H2">H2</option>
+        <option value="H3">H3</option>
+        <option value="p">Paragraphe</option>
+        <option value="img">Image</option>
+        <option value="figure">Figure</option>
+    </select>
+    </div>
+    <div class="form-style" id="textField">
+        <label for="text">Texte :</label>
+        <textarea type="text" name="text" id="text" placeholder="Saisir votre texte"></textarea>
+    </div>
+
+    <div class="form-style"  id="styleField">
+        <label for="style">Style :</label>
+        <textarea type="text" name="style" id="style" placeholder="Saisir un style (ex: color:#fff;)"></textarea>
+    </div>
+
+    <div class="form-style"  id="fileField" style="display: none;">
+        <label for="fileToUpload">Fichier :</label>
+        <input type="file" name="fileToUpload" id="fileToUpload">
+    </div>
+
+    <div class="form-style"  id="altField" style="display: none;">
+        <label for="alt">Alt :</label>
+        <textarea type="text" name="alt" id="alt" placeholder="Description de l'image"></textarea>
+    </div>
+
+    <div class="form-style">
+        <label for="article">Article :</label>
+    <select name="article_id" id="article_id" required>
+        {% for a in article %}
+            <option value="{{ a.id }}">{{ a.h1 }}</option>
+        {% endfor %}
+    </select>
+    </div>
+
+    <input class="btn-detail" type="submit" value="Créer" name="submit">
+</form>
+
+
+{% endblock %}

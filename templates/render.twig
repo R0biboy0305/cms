@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style\composents\render.css">
+    <title>Document</title>
+</head>
+<body>
+<main class="render">
+    {% for b in article %}
+    <div class="article">
+        <h1 style="{{ b.style_h1 }}">{{ b.h1 }}</h1>
+        <h2 style="{{ b.style_h2 }}">{{ b.h2 }}</h2>
+        {% for bloc in c %}
+        <div class="bloc">
+        {% if bloc.article_id == b.id %}
+            {% if bloc.type == "H1" %}
+                <h1 style="{{ bloc.style }}">{{ bloc.text }}</h1>
+            {% elseif bloc.type == "H2" %}
+                <h2 style="{{ bloc.style }}">{{ bloc.text }}</h2>
+            {% elseif bloc.type == "H3" %}
+                <h3 style="{{ bloc.style }}">{{ bloc.text }}</h3>
+            {% elseif bloc.type == "p" %}
+                <p style="{{ bloc.style }}">{{ bloc.text }}</p>
+                {% elseif bloc.type == "img" %}
+                <img src="{{ bloc.src }}" alt="{{ bloc.alt}}">
+                {% elseif bloc.type == "figure" %}
+                <figure>
+                    <img src="{{ bloc.src }}" alt="{{ bloc.alt }}">
+                    <figcaption>{{ bloc.text }}</figcaption>
+                </figure>
+            {% else %}
+                <p>Type non reconnu</p>
+            {% endif %}  
+            {% endif %}
+        </div>
+        {% endfor %} 
+
+        <p style="font-style:italic;">{{ b.auteur }}</p>
+    </div>
+    {% endfor %}
+</main>
+
+</body>
+</html>
+
+

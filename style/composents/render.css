@@ -1,0 +1,15 @@
+* {
+  font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+}
+
+.render {
+  margin: auto;
+  max-width: 860px;
+}
+
+img {
+  max-width: 960px;
+  max-height: 960px;
+}/*# sourceMappingURL=render.css.map */

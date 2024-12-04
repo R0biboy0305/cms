@@ -1,0 +1,39 @@
+$bg-article :  #F0F0F0;
+
+
+.article{
+    display: flex;
+    background-color: $bg-article;
+    align-items: top;
+    padding: 20px;
+    margin: auto 0;
+    border-radius: 5px;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__title{
+        font-size: 32px;
+    }
+
+    &__sub-title{
+        font-size: 24px;
+    }
+
+    &__id{
+        font-size: 18px;
+    }   
+
+    &__autor{
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 300;
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
