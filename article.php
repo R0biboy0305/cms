@@ -12,27 +12,38 @@ class Article{
 
     function create()
     {   
+
         $sql='SELECT MAX(position) AS max_position FROM article';
         $pdo=connexion();
         $query = $pdo->prepare($sql);
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
+        if ($result['max_position'] == 0){
 
-        $new_position = $result['max_position'] + 1;   
+            $new_position = 1;
+
+        }
+        else{
+
+        $new_position = $result['max_position'] + 1; 
+
+        }  
 
 
 
-        $sql = 'INSERT INTO article (h1, h2, auteur, position)
-         VALUES (:h1, :h2, :auteur, :position)';
+        $sql = 'INSERT INTO article (h1, h2, auteur, position, style_h1, style_h2)
+         VALUES (:h1, :h2, :auteur, :position, :style_h1, :style_h2)';
 
         $pdo = connexion();
 
         $query = $pdo->prepare($sql);
         $query->bindParam(':h1', $this->h1);
         $query->bindParam(':h2', $this->h2);
+        $query->bindParam(':style_h1', $this->style_h1);
+        $query->bindParam(':style_h2', $this->style_h2);
         $query->bindParam(':auteur', $this->auteur);
-        $query->bindParam(':position', $new_position->position);
+        $query->bindParam(':position', $new_position);
         $query->execute();
     }
 

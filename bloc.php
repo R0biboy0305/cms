@@ -78,8 +78,25 @@ class Bloc
     }
     function create(){   
 
-        $sql = 'INSERT INTO bloc (type, text, style, src, alt, article_id)
-         VALUES (:type, :text, :style, :src, :alt, :article_id)';
+        $sql='SELECT MAX(position) AS max_position FROM bloc';
+        $pdo=connexion();
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        if ($result['max_position'] == 0){
+
+            $new_position = 1;
+
+        }
+        else{
+
+        $new_position = $result['max_position'] + 1; 
+
+        }  
+
+        $sql = 'INSERT INTO bloc (type, text, style, src, alt, article_id, position)
+         VALUES (:type, :text, :style, :src, :alt, :article_id, :position)';
 
         $pdo = connexion('bloc');
 
@@ -90,6 +107,7 @@ class Bloc
         $query->bindParam(':src', $this->src);
         $query->bindParam(':alt', $this->alt);
         $query->bindParam(':article_id', $this->article_id);
+        $query->bindParam(':position', $new_position);
         $query->execute();
     }
 
