@@ -13,6 +13,7 @@ class Bloc
     public $article_id;
     public $target_file;
     public $position;
+    public $colonne;
 
     function afficher()
     {
@@ -30,6 +31,9 @@ class Bloc
         }
         if (isset($_POST['text'])) {
             $this->text = $_POST['text'];
+        }
+        if (isset($_POST['colonne'])) {
+            $this->colonne = $_POST['colonne'];
         }
         if (isset($_POST['style'])) {
             $this->style = $_POST['style'];
@@ -53,10 +57,10 @@ class Bloc
         if (isset($_POST["submit"])) {
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".<br>";
+                echo "Le fhicher est une image" . $check["mime"] . ".<br>";
                 $uploadOk = 1;
             } else {
-                echo "File is not an image.<br>";
+                echo "Le fichier n'est pas une image.<br>";
                 $uploadOk = 0;
             }
 
@@ -95,8 +99,8 @@ class Bloc
 
         }  
 
-        $sql = 'INSERT INTO bloc (type, text, style, src, alt, article_id, position)
-         VALUES (:type, :text, :style, :src, :alt, :article_id, :position)';
+        $sql = 'INSERT INTO bloc (type, text, style, src, alt, article_id, position, colonne)
+         VALUES (:type, :text, :style, :src, :alt, :article_id, :position, :colonne)';
 
         $pdo = connexion('bloc');
 
@@ -108,6 +112,7 @@ class Bloc
         $query->bindParam(':alt', $this->alt);
         $query->bindParam(':article_id', $this->article_id);
         $query->bindParam(':position', $new_position);
+        $query->bindParam(':colonne', $this->colonne);
         $query->execute();
     }
 
@@ -142,12 +147,13 @@ class Bloc
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
    
-    }
-
+    } 
+    
     function update()
-    {
-        $sql = 'Update bloc SET type = :type, text =:text, style =:style, src = :src, alt =:alt WHERE id = :id';
-        $pdo = connexion('bloc');
+    {     
+
+        $sql = 'Update bloc SET type = :type, text =:text, style =:style, src = :src, alt =:alt, colonne = :colonne WHERE id = :id';
+        $pdo=connexion();
         $query = $pdo->prepare($sql);
         $query->bindParam(':id', $this->id, PDO::PARAM_INT);
         $query->bindParam(':type', $this->type, PDO::PARAM_STR);
@@ -155,18 +161,9 @@ class Bloc
         $query->bindParam(':style', $this->style, PDO::PARAM_STR);
         $query->bindParam(':src', $this->src, PDO::PARAM_STR);
         $query->bindParam(':alt', $this->alt, PDO::PARAM_STR);
+        $query->bindParam(':colonne', $this->colonne, PDO::PARAM_STR);
 
         $query->execute();
-    }
-
-    function modifier($type, $text, $style, $src, $alt)
-    {
-
-        $this->type = $type;
-        $this->text = $text;
-        $this->style = $style;
-        $this->src = $src;
-        $this->alt = $alt;
     }
 
     static function delete($id)

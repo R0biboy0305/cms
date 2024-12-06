@@ -25,17 +25,31 @@
 			<label for="style">Style :</label>
 			<textarea type="text" name="style" id="style" placeholder="Saisir un style (ex: color:#fff;)">{{ bloc.style }}</textarea>
 		</div>
-	
-		<div class="form-style"  id="fileField" style="display: none;">
-			<label for="fileToUpload">Fichier :</label>
+
+
+		{% if bloc.type == 'figure' or bloc.type == 'img' %}
+		<div class="form-style"  id="fileField">
+			<label for="image">Votre image actuelle :</label>
+			<img src="{{bloc.src}}" alt="{{bloc.alt}}">
+		</div>	
+		<div class="form-style">
+			<label for="fileToUpload">Votre nouvelle image :</label>
 			<input type="file" name="fileToUpload" id="fileToUpload">
 		</div>
-	
-		<div class="form-style"  id="altField" style="display: none;">
+		<div class="form-style"  id="altField">
 			<label for="alt">Alt :</label>
 			<textarea type="text" name="alt" id="alt" placeholder="Description de l'image">{{ bloc.alt }}</textarea>
 		</div>
-	
+		   <div class="form-style" id="columnFiled">
+        <label for="colonne">Disposition : </label>
+        <select name="colonne" required>
+			<option value="une_colonne" {% if bloc.colonne == 'une_colonne' %}selected{% endif %}>1 colonne</option>
+			<option value="deux_colonne" {% if bloc.colonne == 'deux_colonne' %}selected{% endif %}>2 colonnes</option>
+        </select>
+    </div>
+		{% endif %}
+
+
 		<div class="form-style">
 			<label for="article">Article :</label>
 		<select name="article_id" id="article_id" required>

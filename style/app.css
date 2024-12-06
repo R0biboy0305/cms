@@ -63,13 +63,8 @@ section {
   padding: 10px;
 }
 
-.render {
-  margin: auto;
-}
-
-img {
-  max-width: 750px;
-  max-height: 750px;
+figure img {
+  max-width: 800px;
 }
 
 aside {

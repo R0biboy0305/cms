@@ -26,9 +26,9 @@
                 {% elseif bloc.type == "img" %}
                 <img src="{{ bloc.src }}" alt="{{ bloc.alt}}">
                 {% elseif bloc.type == "figure" %}
-                <figure>
+                <figure class="{{bloc.colonne}}" style="{{bloc.style}}">
                     <img src="{{ bloc.src }}" alt="{{ bloc.alt }}">
-                    <figcaption>{{ bloc.text }}</figcaption>
+                    <figcaption >{{ bloc.text }}</figcaption>
                 </figure>
             {% else %}
                 <p>Type non reconnu</p>

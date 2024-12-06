@@ -4,6 +4,7 @@ function updateFormFields() {
     const textField = document.getElementById('textField');
     const fileField = document.getElementById('fileField');
     const altField = document.getElementById('altField');
+    const columnFiled = document.getElementById('columnFiled')
 
     if (type === 'img') {
     
@@ -16,6 +17,7 @@ function updateFormFields() {
         textField.style.display = 'block';
         fileField.style.display = 'block';
         altField.style.display = 'block';
+        columnFiled.style.display = 'block';
 
     } else {
 

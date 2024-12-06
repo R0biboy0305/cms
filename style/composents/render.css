@@ -12,4 +12,15 @@
 img {
   max-width: 960px;
   max-height: 960px;
+}
+
+.une-colonne {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.deux_colonne {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }/*# sourceMappingURL=render.css.map */

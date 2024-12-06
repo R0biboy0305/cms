@@ -89,7 +89,7 @@ class Article{
             $this->auteur=$_POST['auteur'];
         }
         if(isset($_POST['position'])){
-            $this->h2=$_POST['position'];
+            $this->position=$_POST['position'];
         }
 
     }
@@ -105,14 +105,16 @@ class Article{
 
     function update(){
 
-        $sql = 'Update article SET h1 = :h1, h2 = :h2, auteur = :auteur WHERE :id = id';
-        $pdo = connexion('article');
+        $sql = 'Update article SET h1 = :h1, h2 = :h2, auteur = :auteur, style_h1 = :style_h1, style_h2 = :style_h2 WHERE id = :id';
+        $pdo = connexion();
         $query = $pdo->prepare($sql);
         $query->bindParam(':id', $this->id, PDO::PARAM_INT);
         $query->bindParam(':h1', $this->h1, PDO::PARAM_STR);
         $query->bindParam(':h2', $this->h2, PDO::PARAM_STR);
+        $query->bindParam(':style_h1', $this->style_h1, PDO::PARAM_STR);
+        $query->bindParam(':style_h2', $this->style_h2, PDO::PARAM_STR);
         $query->bindParam(':auteur', $this->auteur, PDO::PARAM_STR);
-
+        
         $query->execute();
 
     }
