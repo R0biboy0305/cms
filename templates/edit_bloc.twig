@@ -28,14 +28,19 @@
 
 
 		{% if bloc.type == 'figure' or bloc.type == 'img' %}
+		<p>{{bloc.src}}</p>
+		<input type="hidden" id="local_file" name="src" value="{{ bloc.src }}">
 		<div class="form-style"  id="fileField">
 			<label for="image">Votre image actuelle :</label>
-			<img src="{{bloc.src}}" alt="{{bloc.alt}}">
+			<img src="{{ bloc.src }}" alt="{{ bloc.alt }}">
 		</div>	
-		<div class="form-style">
-			<label for="fileToUpload">Votre nouvelle image :</label>
+
+		<button id="image-modifier" type="button">Modifier l'image</button>
+		<div class="form-style show-file" style="display:none;">
 			<input type="file" name="fileToUpload" id="fileToUpload">
 		</div>
+
+
 		<div class="form-style"  id="altField">
 			<label for="alt">Alt :</label>
 			<textarea type="text" name="alt" id="alt" placeholder="Description de l'image">{{ bloc.alt }}</textarea>
@@ -47,6 +52,7 @@
 			<option value="deux_colonne" {% if bloc.colonne == 'deux_colonne' %}selected{% endif %}>2 colonnes</option>
         </select>
     </div>
+	
 		{% endif %}
 
 

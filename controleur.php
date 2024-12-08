@@ -27,10 +27,12 @@ switch ($page) {
                                 ];
                                 break;
                         case 'readAll':
+                                $article=Article::readAll();
                                 $result = Bloc::readAll();
                                 $view = 'readAll.twig';
                                 $data=[
                                         'result' => $result,
+                                        'article' => $article
                                 ];
                                 break;
                         case 'createForm':
@@ -99,6 +101,16 @@ switch ($page) {
                                 ];
                                 header('Location: controleur.php?page=bloc&action=readAll');
                                 exit;
+                                break;
+                        case'readByArticle':
+                                $article=Article::readOne($id);
+                                $bloc=Bloc::readByArticle($article_id);
+                                $view='readBlocByArticle.twig';
+                                $data=[
+                                        'article' => $article,
+                                        'bloc' => $bloc,
+                                ];
+                      
                                 break;
                                 
                 }

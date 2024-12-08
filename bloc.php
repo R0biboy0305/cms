@@ -38,6 +38,9 @@ class Bloc
         if (isset($_POST['style'])) {
             $this->style = $_POST['style'];
         }
+        if (isset($_POST['src'])) {
+            $this->src = $_POST['src'];
+        }
         if (isset($_POST['alt'])) {
             $this->alt = $_POST['alt'];
         }
@@ -139,7 +142,10 @@ class Bloc
     }
 
    static function readByArticle($article_id){
-        $sql = 'SELECT * FROM bloc WHERE article_id = :article_id';
+
+        $sql = 'SELECT bloc.*, article.h1 FROM bloc 
+                JOIN article ON article.id = bloc.article_id 
+                WHERE bloc.article_id = :article_id';
         $pdo = connexion();
         $query = $pdo->prepare($sql);
         $query->bindValue(':article_id', $article_id, PDO::PARAM_INT);

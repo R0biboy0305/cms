@@ -41,3 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+const button = document.getElementById('image-modifier');
+const formStyleDiv = document.querySelector('.show-file');
+
+button.addEventListener('click', () => {
+    formStyleDiv.style.display = 'block';
+});
+
+

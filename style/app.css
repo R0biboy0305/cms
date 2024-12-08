@@ -49,6 +49,9 @@ section {
   margin: 20px 20px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -61,6 +64,7 @@ section {
   border-radius: 5px;
   background-color: #F0F0F0;
   padding: 10px;
+  width: 1200px;
 }
 
 figure img {
@@ -97,13 +101,14 @@ header {
 .article {
   display: flex;
   background-color: #F0F0F0;
-  align-items: top;
   padding: 20px;
   margin: auto 0;
   border-radius: 5px;
   width: 90%;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
+  margin-top: 10px;
 }
 .article__title {
   font-size: 32px;

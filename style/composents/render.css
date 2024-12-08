@@ -23,4 +23,8 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+main {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }/*# sourceMappingURL=render.css.map */
